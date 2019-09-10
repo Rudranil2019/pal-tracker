@@ -13,6 +13,8 @@ jobs:
       language: java
       jdk: openjdk11
       install: skip
+      before_script:
+        - chmod a+x gradlew
       script: ./gradlew clean build
       before_deploy:
         - git config --local user.name "Travis CI"
@@ -25,6 +27,7 @@ jobs:
         skip_cleanup: true
     - stage: deploy to cf
       language: bash
+        - chmod a+x gradlew
       script:
         - echo "Downloading $RELEASE_TAG"
         - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/$RELEASE_TAG/pal-tracker.jar
