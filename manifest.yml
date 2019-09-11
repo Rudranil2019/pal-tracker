@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-=======
----
->>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
 applications:
   - name: pal-tracker
     path: build/libs/pal-tracker.jar
     routes:
-<<<<<<< HEAD
       - route: pal-tracker-priyendu-rishabh-apps.cfapps.io
-=======
-      - route: pal-tracker-rudra-surya.cfapps.io
->>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
     env:
       WELCOME_MESSAGE: Hello from the review environment
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
