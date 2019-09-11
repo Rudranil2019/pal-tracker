@@ -36,8 +36,13 @@ public class TimeEntryControllerTest {
         long timeEntryId = 1L;
         TimeEntry expectedResult = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
         doReturn(expectedResult)
+<<<<<<< HEAD
             .when(timeEntryRepository)
             .create(any(TimeEntry.class));
+=======
+                .when(timeEntryRepository)
+                .create(any(TimeEntry.class));
+>>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
 
 
         ResponseEntity response = controller.create(timeEntryToCreate);
@@ -55,8 +60,13 @@ public class TimeEntryControllerTest {
         long userId = 456L;
         TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
         doReturn(expected)
+<<<<<<< HEAD
             .when(timeEntryRepository)
             .find(timeEntryId);
+=======
+                .when(timeEntryRepository)
+                .find(timeEntryId);
+>>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
 
         ResponseEntity<TimeEntry> response = controller.read(timeEntryId);
 
@@ -69,8 +79,13 @@ public class TimeEntryControllerTest {
     public void testRead_NotFound() {
         long nonExistentTimeEntryId = 1L;
         doReturn(null)
+<<<<<<< HEAD
             .when(timeEntryRepository)
             .find(nonExistentTimeEntryId);
+=======
+                .when(timeEntryRepository)
+                .find(nonExistentTimeEntryId);
+>>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
 
         ResponseEntity<TimeEntry> response = controller.read(nonExistentTimeEntryId);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
@@ -79,8 +94,13 @@ public class TimeEntryControllerTest {
     @Test
     public void testList() {
         List<TimeEntry> expected = asList(
+<<<<<<< HEAD
             new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8),
             new TimeEntry(2L, 789L, 321L, LocalDate.parse("2017-01-07"), 4)
+=======
+                new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8),
+                new TimeEntry(2L, 789L, 321L, LocalDate.parse("2017-01-07"), 4)
+>>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
         );
         doReturn(expected).when(timeEntryRepository).list();
 
@@ -98,8 +118,13 @@ public class TimeEntryControllerTest {
         long userId = 654L;
         TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-07"), 4);
         doReturn(expected)
+<<<<<<< HEAD
             .when(timeEntryRepository)
             .update(eq(timeEntryId), any(TimeEntry.class));
+=======
+                .when(timeEntryRepository)
+                .update(eq(timeEntryId), any(TimeEntry.class));
+>>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
 
         ResponseEntity response = controller.update(timeEntryId, expected);
 
@@ -112,8 +137,13 @@ public class TimeEntryControllerTest {
     public void testUpdate_NotFound() {
         long nonExistentTimeEntryId = 1L;
         doReturn(null)
+<<<<<<< HEAD
             .when(timeEntryRepository)
             .update(eq(nonExistentTimeEntryId), any(TimeEntry.class));
+=======
+                .when(timeEntryRepository)
+                .update(eq(nonExistentTimeEntryId), any(TimeEntry.class));
+>>>>>>> e0b7808a438e52fd921dddfb9745820b05b76e02
 
         ResponseEntity response = controller.update(nonExistentTimeEntryId, new TimeEntry());
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
